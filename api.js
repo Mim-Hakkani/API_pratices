@@ -98,3 +98,16 @@ const postimgs =(images)=>{
    })
 
 } 
+
+/* Quote the niti kotha ,,,,,  */
+const newqote = ()=>{
+   fetch('https://api.kanye.rest/')
+   .then(res=>res.json())
+   .then(data =>QuoteText(data))
+}
+
+
+ const QuoteText=(text)=>{
+    const qiv = document.getElementById('quote')
+    qiv.innerText =text.quote;
+ }
