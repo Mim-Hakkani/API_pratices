@@ -61,3 +61,40 @@ const fbpost = (fpost) =>{
    })
 
 }
+
+
+/* Facebbok Posts Images ....*/
+
+const myimages =() =>{
+   fetch('https://jsonplaceholder.typicode.com/photos')
+   .then(res=>res.json())
+   .then(data=>postimgs(data))
+}
+
+const postimgs =(images)=>{
+
+   const fbimgeid = document.getElementById('fb-img');
+ 
+
+ (images.slice(0,20)).forEach(image=>{
+    // console.log(image);
+      const div = document.createElement('div');
+      div.classList.add('col-md-4');
+      div.innerHTML =`
+                  <div class="card">
+                     <p>${image.id}</p>
+                     <img src="${image.thumbnailUrl}" class="card-img-top" alt="" height="100" width="100">
+                     <div class="card-body">
+                        <h5 class="card-title">${image.title}</h5>
+                        <p class="card-text">Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block</p>
+                     <a href="#" class="btn btn-primary">Go somewhere</a>
+                     </div>
+                 </div>  
+      
+      `
+      fbimgeid.appendChild(div);
+
+
+   })
+
+} 
