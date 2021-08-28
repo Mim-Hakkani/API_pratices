@@ -37,3 +37,27 @@ const userdata =(userDetails) =>{
 }
 
 /* End of user api section */
+
+fetch('https://jsonplaceholder.typicode.com/posts')
+.then(res =>res.json())
+.then(data =>fbpost(data))
+
+const fbpost = (fpost) =>{
+   const posts = document.getElementById('facebook-posts');
+  // console.log(fpost);
+  fpost.forEach(post =>{
+      
+   const div = document.createElement('div')
+   div.classList.add('col-md-6')
+   div.innerHTML =`
+
+      <h5 class="text-danger">Post No : ${post.id}</h5>
+      <h3 class="text-primary">${post.title}</h3>
+      <p class="text-justify text-muted">${post.body}</p>
+
+   `
+   posts.appendChild(div);
+
+   })
+
+}
