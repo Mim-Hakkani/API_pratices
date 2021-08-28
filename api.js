@@ -111,3 +111,29 @@ const newqote = ()=>{
     const qiv = document.getElementById('quote')
     qiv.innerText =text.quote;
  }
+
+
+ /* random user  with his picture ,name ,cell */
+ 
+ fetch('https://randomuser.me/api/?results=6')
+ .then(res=>res.json())
+ .then(data =>Rusers(data.results))
+
+ const Rusers =(users)=>{
+  const randomDiv = document.getElementById('random');
+  users.forEach(user =>{
+     console.log(user);
+     const mimDiv = document.createElement('div');
+      mimDiv.classList.add('col-md-4');
+      mimDiv.innerHTML =`
+            <img src="${user.picture.medium}" alt="" style="height: 200px; width: 200px; border-radius: 50%;">
+            <h3>Name : ${user.name.title}. ${user.name.first} ${user.name.last}</h3>
+            <h3>Cell :${user.cell}</h3>
+            <h3>Gender:${user.gender}</h3>
+      
+      `
+      randomDiv.appendChild(mimDiv)
+
+  })
+
+ }
