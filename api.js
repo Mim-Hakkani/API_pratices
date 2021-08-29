@@ -45,7 +45,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 const fbpost = (fpost) =>{
    const posts = document.getElementById('facebook-posts');
   // console.log(fpost);
-  fpost.forEach(post =>{
+  fpost.slice(0,6).forEach(post =>{
       
    const div = document.createElement('div')
    div.classList.add('col-md-6')
@@ -76,7 +76,7 @@ const postimgs =(images)=>{
    const fbimgeid = document.getElementById('fb-img');
  
 
- (images.slice(0,20)).forEach(image=>{
+ (images.slice(0,6)).forEach(image=>{
     // console.log(image);
       const div = document.createElement('div');
       div.classList.add('col-md-4');
@@ -114,7 +114,7 @@ const newqote = ()=>{
 
 
  /* random user  with his picture ,name ,cell */
- 
+
  fetch('https://randomuser.me/api/?results=6')
  .then(res=>res.json())
  .then(data =>Rusers(data.results))
@@ -137,3 +137,4 @@ const newqote = ()=>{
   })
 
  }
+ /******************End of Basic Api ******************* */
